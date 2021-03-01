@@ -15,3 +15,32 @@
 
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+    <h1>ALL ARTICLES</h1>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Articles</h3>
+  </div>
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-12 col-sm-6 col-md-4">
+        <%= link_to article_path(article), class: 'text-decoration-none' do %>
+          <div class="card">
+
+            <h1> <%= article.name %> </h1>
+            <p> <%= article.gender %> </p>
+            <p> <%= article.size %> </p>
+            <p> <%= article.price_per_month %> </p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
