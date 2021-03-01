@@ -1,1 +1,18 @@
-<h1>indosudno</h1>
+<div class="container">
+  <h1> <%= @article.name %> </h1>
+
+  <%= cl_image_tag(@article.photos.first.key, :width=>600, :crop=>"scale" ) %>
+  <h4> Suited for: <%= @article.gender %> </h4>
+  <h4> Size: <%= @article.size %> </h4>
+  <h4> Price: <%= @article.price_per_month %> AED per month </h4>
+  <h4> Description: <%= @article.details %> </h4>
+  <div class="d-flex">
+    <%= link_to 'edit',
+       edit_article_path(@article),
+       class: 'btn btn-xs btn-warning mr-1' %>
+    <%= link_to 'delete',
+       article_path(@article),
+       method: 'delete',
+       class: 'btn btn-xs btn-danger' %>
+  </div>
+</div>
