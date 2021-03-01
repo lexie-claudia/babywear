@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :destroy]
+  before_action :set_article, only: [:show, :destroy, :edit, :update]
   def index
     @articles = Article.all
   end
@@ -24,6 +24,15 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_path
+
+  def edit
+  end
+
+  def update
+    @article.update(article_params)
+
+    # no need for app/views/article/update.html.erb
+    redirect_to article_path(@article)
   end
 
   private
