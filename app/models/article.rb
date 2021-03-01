@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   has_many :bookings
+  has_many_attached :photos
   belongs_to :user
   validates :name, presence: true, uniqueness: true
   GENDER = %w(girl boy)
