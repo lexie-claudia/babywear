@@ -10,17 +10,22 @@
   </div>
   <div class="row">
     <% @articles.each do |article| %>
-      <div class="card col-12 col-sm-6 col-md-4">
-        <% article.photos.each do |photo| %>
-          <%= cl_image_tag(photo.key) %>
+      <div class="col-12 col-sm-6 col-md-4">
+        <%= link_to article_path(article), class: 'text-decoration-none' do %>
+          <div class="card">
+            <% article.photos.each do |photo| %>
+              <%= cl_image_tag(photo.key) %>
+            <% end %>
+            <h1> <%= article.name %> </h1>
+            <p> <%= article.gender %> </p>
+            <p> <%= article.size %> </p>
+            <p> <%= article.price_per_month %> </p>
+          </div>
         <% end %>
-        <h1> <%= article.name %> </h1>
-        <p> <%= article.gender %> </p>
-        <p> <%= article.size %> </p>
-        <p> <%= article.price_per_month %> </p>
       </div>
     <% end %>
   </div>
+
 </div>
 
 
