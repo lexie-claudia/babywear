@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :articles, only: [:index, :new, :show, :create, :edit, :update, :destroy]
+  resources :articles
+  get 'my_articles', to: 'articles#my_articles'
 end
