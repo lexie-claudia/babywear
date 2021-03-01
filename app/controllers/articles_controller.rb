@@ -36,6 +36,10 @@ class ArticlesController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def my_articles
+    @articles = Article.where(user: current_user)
+  end
+
   private
 
   def set_article
