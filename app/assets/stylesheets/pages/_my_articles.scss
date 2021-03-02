@@ -1,0 +1,15 @@
+#email_h1 {
+  font-weight: bolder;
+  background-color: lightgray;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+.grid-tier{
+  display: grid;
+  grid-template-rows: 0.5fr 3fr 1fr;
+}
+
+.text-dark {
+  font-size: 20px
+}
