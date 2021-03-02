@@ -1,42 +1,49 @@
 <div class="container">
-  <h1 class="text-blue"><%= @article.name %></h1>
+  <h1 class="text-green pt-3"><%= @article.name %></h1>
 
-  <!-- <img src="" alt=""> tag -->
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="<%= cl_image_path @article.photos.first.key %>" class="mb-3 rounded d-block w-100" alt="...">
+  <div class="row">
+    <div class="col-12 col-sm-8">
+      <!-- <img src="" alt=""> tag -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="<%= cl_image_path @article.photos.first.key %>" class="mb-3 rounded d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-4">
+      <div class="card p-2 rounded">
+        <h4 class="text-green"><bold>Rent your item here<bold></h4>
+          <p><%= @article.price_per_month %> AED per month </p>
+          <label>Start date</label>
+          <input type="text">
+          <label>End date</label>
+          <input type="text">
+          <button class="btn btn-primary mt-2">Reserve</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="text-orange col-12 col-md-8">
+        <h4><i class="fas fa-baby-carriage"></i> From our <%= @article.gender %> range </h4>
+        <h4><i class="fas fa-baby-carriage"></i> <%= @article.size %> </h4>
+        <h4><i class="fas fa-baby-carriage"></i> Description: <%= @article.details %> </h4>
+        <div class="d-flex">
+          <%= link_to 'edit',
+          edit_article_path(@article),
+          class: 'btn btn-xs btn-warning mr-1' %>
+          <%= link_to 'delete',
+          article_path(@article),
+          method: 'delete',
+          class: 'btn btn-xs btn-danger' %>
+        </div>
       </div>
     </div>
   </div>
-
-
-  <div class="row">
-
-      <div class="text-orange bg-white col-12 col-md-8">
-        <h4> Suited for: <%= @article.gender %> </h4>
-        <h4> Size: <%= @article.size %> </h4>
-        <h4> Description: <%= @article.details %> </h4>
-        <div class="d-flex">
-          <%= link_to 'edit',
-             edit_article_path(@article),
-             class: 'btn btn-xs btn-warning mr-1' %>
-          <%= link_to 'delete',
-             article_path(@article),
-             method: 'delete',
-             class: 'btn btn-xs btn-danger' %>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <div class="card">
-          <h4> Price: <%= @article.price_per_month %> AED per month </h4>
-          <button class="btn btn-primary">Book</button>
-        </div>
-      </div>
-
-  </div>
-</div>
 
 
 <!-- LV to edit this file using bootstrap and cloudinary on the text-->
