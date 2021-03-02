@@ -9,12 +9,11 @@
 <!-- banner ends -->
 
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
+<div class="container">
 
   <div class="text-center text-white">
     <h1><bold>CATEGORIES<bold></h1>
   </div>
-
 
   <div class="cards">
     <%= link_to articles_path(query: "girls") do %>
@@ -22,7 +21,6 @@
         Girls
       </div>
     <% end %>
-
 
     <%= link_to articles_path(query: "boys") do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1504151671506-6312eceb0f18?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1649&q=80)">
@@ -36,7 +34,6 @@
       </div>
     <% end %>
   </div>
-
 </div>
 
 
