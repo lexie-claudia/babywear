@@ -1,36 +1,32 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
-    <h1>ALL ARTICLES</h1>
-  </div>
-</div>
+<div class="container mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white" id="email_h1">
+    <h1> All available articles</h1>
 
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">Articles</h3>
-  </div>
-  <div class="row">
-    <% @articles.each do |article| %>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+    </div>
+    <div class="row">
+      <% @articles.each do |article| %>
       <div class="col-12 col-sm-6 col-md-4">
         <%= link_to article_path(article), class: 'text-decoration-none' do %>
-          <div class="card">
-            <% article.photos.each do |photo| %>
-              <%= cl_image_tag(photo.key) %>
-            <% end %>
-            <h1> <%= article.name %> </h1>
-            <p> <%= article.gender %> </p>
-            <p> <%= article.size %> </p>
-            <p> <%= article.price_per_month %> </p>
+        <div class="card my-3 p-2">
+          <% article.photos.each do |photo| %>
+            <%= cl_image_tag(photo.key) %>
+          <% end %>
+          <div class="grid-tier align-items-center">
+            <div class="d-flex">
+              <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
+              <p class=" mb-0 badge badge-pill badge-success"><%= article.size %> </p>
+            </div>
+            <h4 class="text-left">Article name: <%= article.name %> </h4>
+            <div class="d-flex align-items-center justify-content-end mb-0">
+            <p class="text-dark"><%= article.price_per_month %></p>
+            <p class="text-muted">aed / month</p>
+            </div>
           </div>
+        </div>
         <% end %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-
 </div>
-
-
-
-
-
-
-
