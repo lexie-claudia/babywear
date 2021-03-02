@@ -10,10 +10,10 @@
         <%= link_to article_path(article), class: 'text-decoration-none' do %>
         <div class="card my-3 p-2">
           <% article.photos.each do |photo| %>
-            <%= cl_image_tag(photo.key) %>
+            <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
           <% end %>
           <div class="grid-tier align-items-center">
-            <div class="d-flex">
+            <div class="d-flex p-2">
               <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
               <p class=" mb-0 badge badge-pill badge-success"><%= article.size %> </p>
             </div>
