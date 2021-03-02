@@ -1,6 +1,12 @@
 <div class="container mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white" id="email_h1">
-    <h1> Hello <%= current_user.email %>, these are <strong>your articles</strong></h1>
+    <div class="d-flex justify-content-between align-items-center" >
+      <h1> <strong>Hello <%= current_user.email %>, these are your items</strong></h1>
+      <%= link_to new_article_path, class: 'btn btn-primary' do %>
+      <i class="fas fa-plus-square"></i>
+        Add An Item
+      <% end %>
+    </div>
 
     <div class="d-flex align-items-center justify-content-between mb-3">
     </div>

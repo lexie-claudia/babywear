@@ -16,11 +16,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def create
-    @articles = Article.new(article_params)
+    @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
       redirect_to article_path(@article)
     else
