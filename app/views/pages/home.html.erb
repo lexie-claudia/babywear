@@ -8,30 +8,32 @@
 </div>
 <!-- banner ends -->
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
-    <h1>ALL ARTICLES</h1>
-  </div>
-</div>
 
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">Articles</h3>
+<div class="container">
+
+  <div class="text-center text-white">
+    <h1><bold>CATEGORIES<bold></h1>
   </div>
-  <div class="row">
-    <% @articles.each do |article| %>
-    <div class="col-12 col-sm-6 col-md-4">
-      <%= link_to article_path(article), class: 'text-decoration-none' do %>
-      <div class="card">
-        <%= cl_image_tag(article.photos.first.key) %>
-        <h1> <%= article.name %> </h1>
-        <p> <%= article.gender %> </p>
-        <p> <%= article.size %> </p>
-        <p> <%= article.price_per_month %> </p>
+
+  <div class="cards">
+    <%= link_to articles_path(query: "girls") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1517184642850-503b462c178c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)">
+        Girls
       </div>
-      <% end %>
-    </div>
+    <% end %>
+
+    <%= link_to articles_path(query: "boys") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1504151671506-6312eceb0f18?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1649&q=80)">
+        Boys
+      </div>
+    <% end %>
+
+    <%= link_to articles_path(query: "unisex") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578730260144-c1418687b66d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)">
+        Unisex
+      </div>
     <% end %>
   </div>
 </div>
+
 
