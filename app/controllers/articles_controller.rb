@@ -1,7 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :destroy, :edit, :update]
+
   def index
-    @articles = Article.all
+    if params[:query].present?
+      @search_word = params[:query]
+      @articles = Article.where(gender: params[:query])
+    else
+      @articles = Article.all
+      @search_word = "All"
+    end
   end
 
   def new
