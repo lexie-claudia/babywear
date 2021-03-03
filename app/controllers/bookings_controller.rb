@@ -16,13 +16,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def my_bookings
+    @bookings = Booking.all
+  end
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :message, :number_of_weeks, :price, :status)
   end
 
-  def my_bookings
-    @bookings = Booking.all
-  end
 end
