@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :articles, only: [] do
     resources :bookings, only: [:new, :create]
   end
+
+  get 'my_bookings', to: 'bookings#my_bookings'
 end

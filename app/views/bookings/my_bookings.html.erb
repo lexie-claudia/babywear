@@ -1,0 +1,16 @@
+<div class="container">
+
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+        <%= cl_image_tag booking.article.photos.first.key %>
+        <div class="card-product-infos">
+          <h2><%= booking.article.name %></h2>
+          <p><%= booking.article.gender %></p>
+          <p><%= booking.article.size %></p>
+          <p><%= booking.article.price_per_month %></p>
+        </div>
+      </div>
+    <% end %>
+
+</div>
+
