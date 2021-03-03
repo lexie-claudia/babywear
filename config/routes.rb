@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :articles, only: [] do
     resources :bookings, only: [:new, :create]
   end
-
+  resources :bookings, only: [:edit, :update] do
+    patch :deny, on: :member
+    patch :accept, on: :member
+  end
   get 'my_bookings', to: 'bookings#my_bookings'
 end
