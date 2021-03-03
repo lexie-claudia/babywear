@@ -47,6 +47,10 @@ class ArticlesController < ApplicationController
     @articles = Article.where(user: current_user)
   end
 
+  def my_rentals
+    @bookings = current_user.booking_requests
+  end
+
   private
 
   def set_article

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :articles
   get 'my_articles', to: 'articles#my_articles'
+  get 'my_rentals', to: 'articles#my_rentals'
   resources :articles, only: [] do
     resources :bookings, only: [:new, :create]
   end
