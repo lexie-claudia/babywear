@@ -15,8 +15,9 @@
       <div class="col-12 col-sm-6 col-md-4">
         <%= link_to article_path(article), class: 'text-decoration-none' do %>
         <div class="card my-3 p-2">
-          <% photo = article.photos.first %>
+          <% article.photos.each do |photo| %>
             <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+        <% end %>
           <div class="grid-tier align-items-center">
             <div class="d-flex p-2">
               <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
