@@ -16,10 +16,16 @@
             <p class="text-dark">Total: <%= booking.article.price_per_month * booking.number_of_weeks %> AED</p>
             </div>
           </div>
-          <div class="d-flex">
-            <%= link_to 'edit', class: 'btn btn-xs btn-warning mr-1' %>
-
+          <% if booking.status == 'pending' %>
+          <div class="d-flex justify-content-between">
+            <%= link_to '' , deny_booking_path(booking), class: 'fas fa-window-close text-decoration-none', method: :patch %>
+            <%= link_to '', accept_booking_path(booking), class: 'fas fa-check-square text-decoration-none', method: :patch %>
           </div>
+          <% else %>
+            <p class="text-center">
+              <%= "This booking has been #{booking.status}" %>
+            </p>
+          <% end %>
         </div>
     <% end %>
     </div>
