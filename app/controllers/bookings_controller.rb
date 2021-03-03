@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+
   def edit
   end
 
@@ -49,7 +50,9 @@ class BookingsController < ApplicationController
     @article = Article.find(params[:article_id])
   end
 
+
   def booking_params
     params.require(:booking).permit(:start_date, :message, :number_of_weeks, :price, :status)
   end
+
 end
