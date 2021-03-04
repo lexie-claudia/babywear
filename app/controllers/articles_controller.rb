@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   end
 
   def my_rentals
-    @bookings = current_user.booking_requests
+    @bookings = current_user.booking_requests.where(user_id: current_user)
   end
 
   private
