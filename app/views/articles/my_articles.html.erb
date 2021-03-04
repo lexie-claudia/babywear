@@ -1,32 +1,70 @@
-<div class="container mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white" id="email_h1">
-    <div class="d-flex justify-content-between align-items-center" >
+<div class="mainc container mb-4 d-flex align-items-center justify-content-center">
+  <div class="mainc text-center text-white" id="email_h1">
+    <div class="mainc d-flex justify-content-between align-items-center" >
       <h2 class="m-2 p-2 align-items-center">Hello <%= current_user.email %>, these are your items</h2>
-      <%= link_to new_article_path, class: 'btn btn-primary mr-2' do %>
-      <i class="fas fa-plus-square"></i>
-        Add An Item
-      <% end %>
+
+
+
+
+<button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <i class="fas fa-plus-circle"></i>
+  Add an item
+</button>
+
+<!-- Modal -->
+<div class="p-4 modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add an item</h5>
+        <button type="button" class="close rounded" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Create a new article</h3>
+        <%= simple_form_for @article do |f| %>
+        <%= f.input :name, placeholder: 'article name' %>
+        <%= f.input :gender, collection: Article::GENDER %>
+        <%= f.input :size, collection: Article::SIZE %>
+        <%= f.input :details %>
+        <%= f.input :price_per_month %>
+        <%= f.input :photos, as: :file %>
+        <%= f.submit class: 'btn btn-flat' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger rounded" data-dismiss="modal">Close</button>
+        <%= f.submit class: 'btn btn-primary rounded' %>
+        <% end %>
+      </div>
     </div>
+  </div>
+</div>
+</div>
+
 
     <div class="d-flex align-items-center justify-content-between mb-3">
     </div>
-    <div class="row">
+    <div class="row mainc">
       <% @articles.each do |article| %>
       <div class="col-12 col-sm-6 col-md-4">
         <%= link_to article_path(article), class: 'text-decoration-none text-dark' do %>
         <div class="card my-3 p-2">
           <% article.photos.each do |photo| %>
-            <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
-        <% end %>
+          <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+          <% end %>
           <div class="grid-tier align-items-center">
             <div class="d-flex p-2">
               <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
               <p class=" mb-0 badge badge-pill badge-success"><%= article.size %> </p>
             </div>
             <h4 class="text-left"><%= article.name %> </h4>
-            <div class="d-flex align-items-center justify-content-end mb-0">
-            <p class="text-dark"><%= article.price_per_month %></p>
-            <p class="text-muted">aed / week</p>
+            <div class="d-flex flex-column align-items-end mb-0">
+              <p class="text-black justify-content-end mb-0">
+                <small class="fz-09">AED</small>
+                <%= article.price_per_month %>
+              </p>
+              <p class="text-muted fz-07 justify-content-end">/week</p>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@
               <% else %>
                 <div class="card-image vh-30" style="background-image: url(<%= asset_path('babylogo.png') %>)"></div>
               <% end %>
-              <div class="grid-tier align-items-center">
+              <div class="grid-tier test123 align-items-center">
                 <div class="d-flex pt-2">
                   <% if booking.article.gender == "boys" %>
                     <% color = "boy" %>
@@ -27,7 +27,8 @@
                   <p class="mb-0 badge badge-pill badge-<%= color %> mr-2 p-2"><%= booking.article.gender %> </p>
                   <p class="align-items-center mb-0 badge badge-pill badge-success"><%= booking.article.size %> </p>
                 </div>
-                <h4 class="align-items-center text-left"><%= booking.article.name %> </h4>
+                <h4 class="align-items-center text-left mt-2"><%= booking.article.name %> </h4>
+                <p class="fz-09"> <%= booking.message %> </p>
                 <div class="d-flex align-items-center justify-content-end mb-0">
                   <p class="text-dark">Total: <%= booking.price %> AED</p>
                 </div>
