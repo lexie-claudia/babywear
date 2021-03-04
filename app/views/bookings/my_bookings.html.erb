@@ -5,11 +5,23 @@
         <%= cl_image_tag (booking.article.photos.first.key) %>
         <div class="card-product-infos">
           <h2><%= booking.article.name %></h2>
-          <h2>Status: <%= booking.status %></h2>
-          <p>Booked for: <%= booking.number_of_weeks %> </p>
-          <p><%= booking.article.gender %></p>
-          <p><%= booking.article.size %></p>
-          <p><%= booking.price %></p>
+          <% if booking.status == 'pending' %>
+            <p class='fas fa-window-close text-decoration-none' id="pills"> Declined<p>
+              <% elsif booking.status == 'accepted' %>
+            <p class='fas fa-check-square text-decoration-none' id="pills"> Accepted<p>
+              <% else %>
+            <p class='far fa-comment-dots text-decoration-none' id="pills"> Pending<p>
+          <% end %>
+          <% if booking.article.gender == 'girls' %>
+            <p class=" mb-0 badge badge-pill badge-girl mr-2"><%= booking.article.gender %>
+             <% elsif booking.article.gender == 'boys' %>
+            <p class=" mb-0 badge badge-pill badge-boy mr-2"><%= booking.article.gender %>
+              <% else %>
+            <p class=" mb-0 badge badge-pill badge-unisex mr-2"><%= booking.article.gender %>
+          <% end %>
+          <p class="far fa-clock mx-2"> <%= booking.number_of_weeks %> weeks </p>
+          <p class="fas fa-baby-carriage"> <%= booking.article.size %></p>
+          <p>Total: <%= booking.price %> AED</p>
         </div>
       </div>
     <% end %>
