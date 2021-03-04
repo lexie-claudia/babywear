@@ -38,8 +38,6 @@
           <%= simple_form_for [@article, @booking] do |f| %>
           <%= f.input :start_date %>
           <%= f.input :message %>
-          <%= f.input :price %>
-          <%= f.input :status, input_html: {hidden: :true} %>
           <%= f.input :number_of_weeks, collection: Booking::WEEKS %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
