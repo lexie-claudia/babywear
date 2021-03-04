@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:bookings, :gender, :size, :price_per_month, :details]
+
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
   belongs_to :user

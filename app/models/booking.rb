@@ -1,4 +1,7 @@
 class Booking < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:price, :message, :start_date, :status]
+
   # Associations
   belongs_to :article
   belongs_to :user
