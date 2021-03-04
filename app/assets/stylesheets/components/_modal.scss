@@ -1,0 +1,17 @@
+.modal-content {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+}
+
+.pull-right::before {
+  padding: 5px;
+}
+.fa-cloud-upload-alt {
+  background-color: green;
+  }
+
+.fa-cloud-upload-alt:hover {
+  font-size: 110%;
+  background-color: green;
+}
