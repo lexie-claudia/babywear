@@ -1,3 +1,4 @@
+  <h1 class="text-center my-3">Bookings dashboard</h1>
 <div class="container">
 
     <% @bookings.order('status').each do |booking| %>
@@ -17,10 +18,10 @@
              <% elsif booking.article.gender == 'boys' %>
             <p class=" mb-0 badge badge-pill badge-boy mr-2"><%= booking.article.gender %>
               <% else %>
-            <p class=" mb-0 badge badge-pill badge-unisex mr-2"><%= booking.article.gender %>
+            <p class=" mb-0 badge badge-pill badge-uni mr-2"><%= booking.article.gender %>
           <% end %>
           <p class="far fa-clock mx-2"> <%= booking.number_of_weeks %> weeks </p>
-          <p class="fas fa-baby-carriage"> <%= booking.article.size %></p>
+          <p class="fas fa-baby-carriage mb-3"> <%= booking.article.size %></p>
           <p>Total: <%= booking.price %> AED</p>
         </div>
       </div>
