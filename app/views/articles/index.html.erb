@@ -1,11 +1,11 @@
 <div class="container">
   <!-- <div class="text-center text-white" id="email_h1"> -->
-    <h1 class="text-center text-white mt-4"> <%= @search_word.capitalize %> available articles</h1>
+    <h1 class="text-center mt-4"> <%= @search_word.capitalize %> available articles</h1>
 
     <div class="row">
       <% @articles.each do |article| %>
         <div class="col-12 col-sm-6 col-md-3">
-          <%= link_to article_path(article), class: 'text-decoration-none' do %>
+          <%= link_to article_path(article), class: 'text-decoration-none text-dark' do %>
             <div class="card my-3 p-2">
               <% if article.photos.attached? %>
                 <% photo = article.photos.first %>

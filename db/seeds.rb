@@ -34,13 +34,13 @@ end
 
 puts "Generating sample bookings..."
 Article.all.each do |article|
-  10.times do
+  3.times do
     booking = Booking.new(
       message: Faker::GreekPhilosophers.quote,
       start_date: Date.today + rand(1..100).days,
       status: ["pending", "accepted", "declined"].sample,
       article: article,
-      user: User.where.not(id: article.user.id).sample,
+      user_id: [1, 2].sample,
       number_of_weeks: [2, 4, 6, 8].sample
     )
     booking.save

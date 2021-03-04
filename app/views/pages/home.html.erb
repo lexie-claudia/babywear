@@ -1,7 +1,7 @@
 <!-- this is the banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1604467794349-0b74285de7e7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjN8fGJhYnklMjBjbG90aGVzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
   <div class="container">
-    <h1>Green Cub wear, <strong>a baby wardrobe for every step of the way</strong>!</h1>
+    <h1>Welcome to <i>Green Cub</i>, <strong>a baby wardrobe for every step of the way</strong>!</h1>
     <p>Your desired baby clothing, one click away.</p>
     <a class="btn btn-flat" href="#">Search</a>
   </div>
@@ -12,20 +12,23 @@
 <div class="container">
 
 
+
   <div class="cards pt-3 mb-3">
-    <%= link_to articles_path(query: "girls") do %>
+  <div class="cards">
+    <%= link_to articles_path(query: "girls"), class:"text-decoration-none" do %>
+
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1517184642850-503b462c178c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)">
         Girls
       </div>
     <% end %>
 
-    <%= link_to articles_path(query: "boys") do %>
+    <%= link_to articles_path(query: "boys"), class:"text-decoration-none" do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1504151671506-6312eceb0f18?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1649&q=80)">
         Boys
       </div>
     <% end %>
 
-    <%= link_to articles_path(query: "unisex") do %>
+    <%= link_to articles_path(query: "unisex"), class:"text-decoration-none" do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578730260144-c1418687b66d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)">
         Unisex
       </div>
