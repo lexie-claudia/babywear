@@ -14,14 +14,22 @@
                 <div class="card-image vh-30" style="background-image: url(<%= asset_path('babylogo.png') %>)"></div>
               <% end %>
               <div class="grid-tier align-items-center">
-                <div class="d-flex p-2">
-                  <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
-                  <p class=" mb-0 badge badge-pill badge-success"><%= article.size %> </p>
+                <div class="d-flex pt-2 ">
+                  <% if article.gender == "boys" %>
+                    <% color = "boy" %>
+                  <% elsif article.gender == "girls" %>
+                    <% color = "girl" %>
+                  <% else %>
+                    <% color = "uni" %>
+                  <% end %>
+                  <p class=" mb-0 badge badge-pill badge-<%= color %> p-2 mr-2"><%= article.gender %> </p>
+                  <p class=" mb-0 badge badge-pill badge-success p-2"><%= article.size %> </p>
                 </div>
                 <h4 class="text-left"><%= article.name %> </h4>
                 <div class="d-flex align-items-center justify-content-end mb-0">
-                  <p class="text-dark"><%= article.price_per_month %></p>
-                  <p class="text-muted">aed / week</p>
+                  <p class="text-dark "><%= article.price_per_month %>aed </p>
+
+                  <p class="text-muted">/ week</p>
                 </div>
               </div>
             </div>
