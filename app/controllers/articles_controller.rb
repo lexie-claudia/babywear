@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def my_articles
+    @article = Article.new
     @articles = Article.where(user: current_user)
   end
 
