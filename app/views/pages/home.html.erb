@@ -3,7 +3,9 @@
   <div class="container">
     <h1>Welcome to <i>Green Cub</i>, <strong>a baby wardrobe for every step of the way</strong>!</h1>
     <p>Your desired baby clothing, one click away.</p>
-    <a class="btn btn-flat" href="#">Search</a>
+    <%= link_to articles_path(query: ""), class:"text-decoration-none" do %>
+      <h3 class="btn btn-flat">Browse</h3>
+    <% end %>
   </div>
 </div>
 <!-- banner ends -->

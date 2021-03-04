@@ -1,32 +1,35 @@
-<div class="container mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white" id="email_h1">
-    <div class="d-flex justify-content-between align-items-center" >
+<div class="mainc container mb-4 d-flex align-items-center justify-content-center">
+  <div class="mainc text-center text-white" id="email_h1">
+    <div class="mainc d-flex justify-content-between align-items-center" >
       <h2 class="m-2 p-2 align-items-center">Hello <%= current_user.email %>, these are your items</h2>
       <%= link_to new_article_path, class: 'btn btn-primary mr-2' do %>
       <i class="fas fa-plus-square"></i>
-        Add An Item
+      Add An Item
       <% end %>
     </div>
 
     <div class="d-flex align-items-center justify-content-between mb-3">
     </div>
-    <div class="row">
+    <div class="row mainc">
       <% @articles.each do |article| %>
       <div class="col-12 col-sm-6 col-md-4">
         <%= link_to article_path(article), class: 'text-decoration-none text-dark' do %>
         <div class="card my-3 p-2">
           <% article.photos.each do |photo| %>
-            <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
-        <% end %>
+          <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+          <% end %>
           <div class="grid-tier align-items-center">
             <div class="d-flex p-2">
               <p class=" mb-0 badge badge-pill badge-success mr-2"><%= article.gender %> </p>
               <p class=" mb-0 badge badge-pill badge-success"><%= article.size %> </p>
             </div>
             <h4 class="text-left"><%= article.name %> </h4>
-            <div class="d-flex align-items-center justify-content-end mb-0">
-            <p class="text-dark"><%= article.price_per_month %></p>
-            <p class="text-muted">aed / week</p>
+            <div class="d-flex flex-column align-items-end mb-0">
+              <p class="text-black justify-content-end mb-0">
+                <small class="fz-09">AED</small>
+                <%= article.price_per_month %>
+              </p>
+              <p class="text-muted fz-07 justify-content-end">/week</p>
             </div>
           </div>
         </div>
