@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.article = @article
     @booking.user = current_user
     if @booking.save
-      redirect_to article_path(@article)
+      redirect_to my_bookings_path
     else
       render :new
     end
@@ -19,7 +19,6 @@ class BookingsController < ApplicationController
   def my_bookings
     @bookings = Booking.all
   end
-
 
   def edit
   end
