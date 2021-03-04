@@ -3,8 +3,11 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:query].present?
-      @search_word = params[:query]
       @articles = Article.where(gender: params[:query])
+      @search_word = params[:query]
+    elsif params[:search].present?
+      @search_word = params[:search]
+      @articles = PgSearch.multisearch(params[:search])
     else
       @articles = Article.all
       @search_word = "All"

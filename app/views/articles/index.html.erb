@@ -1,42 +1,26 @@
 <div class="container">
   <!-- <div class="text-center text-white" id="email_h1"> -->
+
+    <%= form_tag articles_path, method: :get do %>
+    <div class="d-flex justify-content-between">
+
+      <%= text_field_tag :search,
+        params[:search],
+        class: "form-control",
+        placeholder: "Find an item"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+    <% end %>
     <h1 class="text-center mt-4"> <%= @search_word.capitalize %> available articles</h1>
 
     <div class="row">
       <% @articles.each do |article| %>
-        <div class="col-12 col-sm-6 col-md-3">
-          <%= link_to article_path(article), class: 'text-decoration-none text-dark' do %>
-            <div class="card my-3 p-2">
-              <% if article.photos.attached? %>
-                <% photo = article.photos.first %>
-                <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
-              <% else %>
-                <div class="card-image vh-30" style="background-image: url(<%= asset_path('babylogo.png') %>)"></div>
-              <% end %>
-              <div class="grid-tier align-items-center">
-                <div class="d-flex pt-2 ">
-                  <% if article.gender == "boys" %>
-                    <% color = "boy" %>
-                  <% elsif article.gender == "girls" %>
-                    <% color = "girl" %>
-                  <% else %>
-                    <% color = "uni" %>
-                  <% end %>
-                  <p class=" mb-0 badge badge-pill badge-<%= color %> p-2 mr-2"><%= article.gender %> </p>
-                  <p class=" mb-0 badge badge-pill badge-success p-2"><%= article.size %> </p>
-                </div>
-                <h4 class="text-left fz-1 mt-3"><%= article.name %> </h4>
-                <div class="d-flex flex-column align-items-end mb-0">
-                  <p class="text-black justify-content-end mb-0">
-                    <small class="fz-09">AED</small>
-                    <%= article.price_per_month %>
-                  </p>
-                  <p class="text-muted fz-07 justify-content-end">/week</p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <% if article.class !=  Article   %>
+          <%= render partial: "article", locals: { article: article.searchable } %>
+        <% else %>
+          <%= render partial: "article", locals: { article: article } %>
+        <% end %>
       <% end %>
     </div>
 </div>
