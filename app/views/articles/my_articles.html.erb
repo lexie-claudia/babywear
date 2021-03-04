@@ -1,8 +1,8 @@
 <div class="container mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white" id="email_h1">
     <div class="d-flex justify-content-between align-items-center" >
-      <h1> <strong>Hello <%= current_user.email %>, these are your items</strong></h1>
-      <%= link_to new_article_path, class: 'btn btn-primary' do %>
+      <h2 class="p-2 align-items-center"> <strong>Hello <%= current_user.email %>, these are your items</strong></h2>
+      <%= link_to new_article_path, class: 'btn btn-primary mr-2' do %>
       <i class="fas fa-plus-square"></i>
         Add An Item
       <% end %>
@@ -13,7 +13,7 @@
     <div class="row">
       <% @articles.each do |article| %>
       <div class="col-12 col-sm-6 col-md-4">
-        <%= link_to article_path(article), class: 'text-decoration-none' do %>
+        <%= link_to article_path(article), class: 'text-decoration-none text-dark' do %>
         <div class="card my-3 p-2">
           <% article.photos.each do |photo| %>
             <div class="card-image vh-30" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>

@@ -5,8 +5,8 @@
     <h1 class="text-center text-dark mt-4"> You have <%= @bookings.count %> rental requests</h1>
 
     <div class="row">
-      <% @bookings.each do |booking| %>
-        <div class="col-12 col-sm-6 col-md-3">
+      <% @bookings.order('status desc').each do |booking| %>
+        <div class="col-12 col-sm-6 col-md-4">
           <%= link_to article_path(booking.article), class: 'text-decoration-none text-dark' do %>
             <div class="card my-3 p-2">
               <% if booking.article.photos.attached? %>
@@ -20,19 +20,19 @@
                   <p class=" mb-0 badge badge-pill badge-success mr-2"><%= booking.article.gender %> </p>
                   <p class=" mb-0 badge badge-pill badge-success"><%= booking.article.size %> </p>
                 </div>
-                <h4 class="text-left"><%= booking.article.name %> </h4>
+                <h4 class="align-items-center text-left"><%= booking.article.name %> </h4>
                 <div class="d-flex align-items-center justify-content-end mb-0">
                   <p class="text-dark">Total: <%= booking.price %> AED</p>
                 </div>
               </div>
                 <% if booking.status == 'pending' %>
-          <div class="d-flex justify-content-between">
-            <%= link_to '' , deny_booking_path(booking), class: 'fas fa-window-close text-decoration-none', method: :patch %>
+          <div class="d-flex justify-content-end">
+            <%= link_to '' , deny_booking_path(booking), class: 'fas fa-window-close text-decoration-none mx-3', method: :patch %>
             <%= link_to '', accept_booking_path(booking), class: 'fas fa-check-square text-decoration-none', method: :patch %>
           </div>
           <% else %>
-            <p class="text-center">
-              <%= "This booking has been #{booking.status}" %>
+            <p class="text-center status">
+              <%= "This request has been #{booking.status}" %>
             </p>
           <% end %>
             </div>
