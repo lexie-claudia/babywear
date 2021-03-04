@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-
   def edit
   end
 

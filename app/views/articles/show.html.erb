@@ -8,23 +8,6 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="<%= cl_image_path @article.photos.first.key %>" class="mb-3 rounded d-block w-100" alt="...">
-            <div class="text-orange col-12 col-md-8">
-              <h4><i class="fas fa-baby-carriage"></i> From our <%= @article.gender %> range </h4>
-              <h4><i class="fas fa-baby-carriage"></i> <%= @article.size %> </h4>
-              <h4><i class="fas fa-baby-carriage"></i> Description: <%= @article.details %> </h4>
-              <% if current_user == @article.user %>
-                <div class="d-flex">
-                  <%= link_to 'edit',
-                  edit_article_path(@article),
-                  class: 'btn btn-xs btn-warning mr-1' %>
-                  <%= link_to 'delete',
-                  article_path(@article),
-                  method: 'delete',
-                  data: { confirm: "Are you sure you want to delete this article?" },
-                  class: 'btn btn-xs btn-danger' %>
-                </div>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
@@ -32,18 +15,43 @@
 
     <div class="col-12 col-sm-4">
       <div class="card p-2 rounded">
-        <h4 class="text-green"><bold>Rent your item here<bold></h4>
-          <p><%= @article.price_per_month %> AED per month </p>
-          <h3>Reserve a booking</h3>
+        <h4 class="text-green"><bold>Reserve this item<bold></h4>
+
           <%= simple_form_for [@article, @booking] do |f| %>
           <%= f.input :start_date %>
           <%= f.input :message %>
           <%= f.input :number_of_weeks, collection: Booking::WEEKS %>
-          <%= f.submit class: 'btn btn-flat' %>
+          <%= f.submit 'Reserve', class: 'btn btn-flat' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="text-orange col-12 col-md-8">
+        <div class="card">
+          <div class="card-body">
+          <h4><i class="fas fa-baby-carriage"></i> <%= @article.price_per_month %> AED per week </h4>
+          <h4><i class="fas fa-baby-carriage"></i> From our <%= @article.gender %> range </h4>
+          <h4><i class="fas fa-baby-carriage"></i> <%= @article.size %> </h4>
+          <h4><i class="fas fa-baby-carriage"></i> Description: <%= @article.details %> </h4>
+          <% if current_user == @article.user %>
+            <div class="d-flex">
+              <%= link_to 'edit',
+              edit_article_path(@article),
+              class: 'btn btn-xs btn-warning mr-1' %>
+              <%= link_to 'delete',
+              article_path(@article),
+              method: 'delete',
+              data: { confirm: "Are you sure you want to delete this article?" },
+              class: 'btn btn-xs btn-danger' %>
+            </div>
         <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <!-- LV to edit this file using bootstrap and cloudinary on the text-->
